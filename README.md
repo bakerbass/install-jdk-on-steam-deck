@@ -4,11 +4,13 @@ install-jdk-on-steam-deck
 <!--ts-->
 * [How it works](#how-it-works)
 * [Usage](#usage)
+* [Enable in Prism](#prism)
 * [TO-DO](#to-do)
 <!--te-->
 
 How it works
 ============
+
 By default, the SteamDeck has a [read-only][1] immutable OS file system, which means that you can't simply
 install anything using the `pacman` package manager that comes with the OS (arch linux), since it would modify
 the OS file system.
@@ -85,6 +87,20 @@ rm -f ~/.profile
 #
 # This line shouldn't interfere with anything since it doesn't load the ~/.profile unless it exists
 ```
+
+# Prism 
+=====
+
+To have Prism use this version of Java, you need to allow it to see what's outside of the flatpak. 
+
+Run this command in konsole:
+```bash
+flatpak override --user --filesystem=/home/deck/.local/jdk org.prismlauncher.PrismLauncher
+```
+
+Then paste the path to the java executable into your instance's path (Instance -> settings -> Java)
+
+The path should end in ```xxx/bin/java```
 
 TO-DO
 =====
