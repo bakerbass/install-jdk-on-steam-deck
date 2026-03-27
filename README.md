@@ -100,7 +100,7 @@ flatpak override --user --filesystem=/home/deck/.local/jdk org.prismlauncher.Pri
 
 Then paste the path to the java executable into your instance's path (Instance -> settings -> Java)
 
-The path should end in ```xxx/bin/java```
+The path should look like  ```/home/deck/.local/jdk/whatever_version_you_installed/bin/java```
 
 TO-DO
 =====
