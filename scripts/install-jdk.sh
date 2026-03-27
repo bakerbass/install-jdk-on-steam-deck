@@ -2,7 +2,7 @@
 
 if [[ -z "$JDK_VERSION" ]];
 then
-    JDK_VERSION=23
+    JDK_VERSION=25
 fi
 
 JDK_17_URL=https://download.java.net/java/GA/jdk17.0.1/2a2082e5a09d4267845be086888add4f/12/GPL/openjdk-17.0.1_linux-x64_bin.tar.gz
@@ -22,6 +22,12 @@ JDK_23_CHECKSUM_URL=https://download.oracle.com/java/23/latest/jdk-23_linux-x64_
 JDK_23_EXTRACTED_DIR=to-be-known-later
 JDK_23_FILE_NAME=jdk-23_linux-x64_bin.tar.gz
 JDK_23_CHECKSUM_FILE_NAME=jdk-23_linux-x64_bin.tar.gz.sha256
+
+JDK_25_URL=https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz
+JDK_25_CHECKSUM_URL=https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz.sha256
+JDK_25_EXTRACTED_DIR=to-be-known-later
+JDK_25_FILE_NAME=jdk-25_linux-x64_bin.tar.gz
+JDK_25_CHECKSUM_FILE_NAME=jdk-25_linux-x64_bin.tar.gz.sha256
 
 JDK_URL=""
 JDK_CHECKSUM_URL=""
@@ -84,6 +90,14 @@ select_jdk_version() {
             JDK_EXTRACTED_DIR="${JDK_23_EXTRACTED_DIR}"
             JDK_FILE_NAME="${JDK_23_FILE_NAME}"
             JDK_CHECKSUM_FILE_NAME="${JDK_23_CHECKSUM_FILE_NAME}"
+            ;;
+        25)
+            log_info "You've selected version jdk-21"
+            JDK_URL="${JDK_25_URL}"
+            JDK_CHECKSUM_URL="${JDK_25_CHECKSUM_URL}"
+            JDK_EXTRACTED_DIR="${JDK_25_EXTRACTED_DIR}"
+            JDK_FILE_NAME="${JDK_25_FILE_NAME}"
+            JDK_CHECKSUM_FILE_NAME="${JDK_25_CHECKSUM_FILE_NAME}"
             ;;
         *)
             log_error "The version you've selected isn't supported, either set JDK_VERSION=17 or JDK_VERSION=21"
